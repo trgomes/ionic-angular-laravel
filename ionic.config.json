@@ -1,0 +1,15 @@
+{
+  "name": "ofertasApp",
+  "app_id": "io.github.trgomes",
+  "type": "ionic1",
+  "integrations": {
+    "gulp": {},
+    "cordova": {}
+  },
+  "watchPatterns": [
+    "scss/**/*",
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
+}
