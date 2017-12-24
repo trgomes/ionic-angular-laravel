@@ -38,6 +38,14 @@ angular.module('starter', ['ionic'])
                         templateUrl: 'templates/ofertas.html'
                     }
                 }
+            })
+            .state('app.favoritos', {
+                url: '/favoritos',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/favoritos.html'
+                    }
+                }
             });
 
         $urlRouterProvider.otherwise('/app/ofertas')
