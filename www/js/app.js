@@ -24,12 +24,12 @@ angular.module('starter', ['ionic'])
     })
 
     // Conifuração de rotas
-    .config(function ($stateProvider, $urlRouteProvider) {
+    .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('app', {
                 url: '/app',
                 abstract: true, //Define como template
-                templateUrl: 'template/tema.html'
+                templateUrl: 'templates/tema.html'
             })
             .state('app.ofertas', {
                 url: '/ofertas',
@@ -40,5 +40,5 @@ angular.module('starter', ['ionic'])
                 }
             });
 
-        $urlRouteProvider.oterwise('/app/ofertas')
+        $urlRouterProvider.otherwise('/app/ofertas')
     })
