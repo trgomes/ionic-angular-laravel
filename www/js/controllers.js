@@ -26,8 +26,22 @@ angular.module('controllers', ['service'])
     })
 
 
-    .controller('FavoritosController', function ($scope, webService) {
+    .controller('FavoritosController', function ($scope, webService, $ionicListDelegate) {
 
         $scope.favoritos = webService.getFavoritos();
+
+        $scope.removeFavorito = function (oferta) {
+            var favoritos = webService.getFavoritos();
+
+            //Verifica se a oferta já existe nos favoritos
+            for (i in favoritos) {
+                if (oferta.id == favoritos[i].id) {
+                    favoritos.splice(i, 1);                    
+                }
+            }
+            
+            webService.setFavoritos(favoritos);            
+            $ionicListDelegate.closeOptionButtons();
+        }
 
     })
