@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+angular.module('starter', ['ionic', 'controllers', 'routes'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -21,32 +21,4 @@ angular.module('starter', ['ionic'])
                 StatusBar.styleDefault();
             }
         });
-    })
-
-    // Conifuração de rotas
-    .config(function ($stateProvider, $urlRouterProvider) {
-        $stateProvider
-            .state('app', {
-                url: '/app',
-                abstract: true, //Define como template
-                templateUrl: 'templates/tema.html'
-            })
-            .state('app.ofertas', {
-                url: '/ofertas',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/ofertas.html'
-                    }
-                }
-            })
-            .state('app.favoritos', {
-                url: '/favoritos',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/favoritos.html'
-                    }
-                }
-            });
-
-        $urlRouterProvider.otherwise('/app/ofertas')
     })

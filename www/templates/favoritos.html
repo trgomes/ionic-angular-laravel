@@ -1,5 +1,18 @@
 <ion-view view-title="Favoritos">
     <ion-content>
-        <h2>Favoritos</h2>
+        <ion-list>
+            <ion-item ng-repeat="favorito in favoritos">
+                <div class="item-avatar">
+                    <img src="" alt="">
+                    <h2>{{favorito.titulo}} - {{favorito.valor_f}}</h2>
+                    <p>{{favorito.descricao}}</p>
+                    <p>Até: {{favorito.validade | date:"dd/MM/yy"}}</p>
+                </div>
+
+                <ion-option-button class="button-assertive">
+                    Excluir
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
     </ion-content>
 </ion-view>
