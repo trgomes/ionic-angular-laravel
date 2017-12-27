@@ -1,23 +1,33 @@
-angular.module('service', [])
+angular.module('service', ['ngStorage'])
 
-    .service('webService', function () {
+    .service('webService', function ($localStorage) {
 
         var _getOfertas = function () {
-            return [
-                { id: '1', titulo: 'Café', descricao: 'Descrição', valor: 4.45, valor_f: 'R$ 4,45', validade: '2017-12-26', img: '' },
-                { id: '2', titulo: 'Manteiga', descricao: 'Descrição', valor: 4.45, valor_f: 'R$ 4,45', validade: '2017-12-26', img: '' },
-                { id: '3', titulo: 'Pão', descricao: 'Descrição', valor: 4.45, valor_f: 'R$ 4,45', validade: '2017-12-26', img: '' }
-            ];
+
+            //Verifica se existe algo cadastrado no localStorage do navegador
+            if (!$localStorage.ofertas) {
+                $localStorage.ofertas = [
+                    { id: '1', titulo: 'Café', descricao: 'Descrição', valor: 4.45, valor_f: 'R$ 4,45', validade: '2017-12-26', img: '' },
+                    { id: '2', titulo: 'Manteiga', descricao: 'Descrição', valor: 4.45, valor_f: 'R$ 4,45', validade: '2017-12-26', img: '' },
+                    { id: '3', titulo: 'Pão', descricao: 'Descrição', valor: 4.45, valor_f: 'R$ 4,45', validade: '2017-12-26', img: '' }
+                ];
+            }
+
+            return $localStorage.ofertas;
+
         };
 
         var _getFavoritos = function () {
-            return [
-                { id: '3', titulo: 'Pão', descricao: 'Descrição', valor: 4.45, valor_f: 'R$ 4,45', validade: '2017-12-26', img: '' }
-            ]
+
+            if (!$localStorage.favoritos) {
+                $localStorage.favoritos = [];
+            }
+
+            return $localStorage.favoritos;
         };
 
-        var _setFavoritos = function ($favoritos) {
-
+        var _setFavoritos = function (favoritos) {
+            $localStorage.favoritos = favoritos;
         };
 
         return {
