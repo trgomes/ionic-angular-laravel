@@ -34,7 +34,6 @@ angular.module('service', ['ngStorage'])
             getOfertas: _getOfertas,
             getFavoritos: _getFavoritos,
             setFavoritos: _setFavoritos
-
         };
 
     })

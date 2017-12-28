@@ -33,7 +33,7 @@ angular.module('controllers', ['service'])
         $scope.removeFavorito = function (oferta) {
             var favoritos = webService.getFavoritos();
 
-            //Verifica se a oferta já existe nos favoritos
+            //Verifica se a oferta existe nos favoritos
             for (i in favoritos) {
                 if (oferta.id == favoritos[i].id) {
                     favoritos.splice(i, 1);                    
