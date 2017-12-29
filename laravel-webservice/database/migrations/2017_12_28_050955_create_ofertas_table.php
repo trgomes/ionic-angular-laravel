@@ -19,8 +19,7 @@ class CreateOfertasTable extends Migration
             $table->string('descricao');
             $table->date('validade');
             $table->decimal('valor', 5,2);
-            $table->string('valor_f');
-            $table->text('imagem');
+            $table->string('valor_f');            
             $table->timestamps();
         });
     }

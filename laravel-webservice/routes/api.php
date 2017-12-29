@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/ofertas', function () {
+    header("Access-Control-Allow-Origin: *");
+    $ofertas = App\Oferta::all();
+    return response()->json($ofertas);
 });
